@@ -2,88 +2,11 @@
 
 Dieses LaTeX Template ist für alle Arbeiten der Fakultät Informatik der DHBW Heidenheim geeignet.
 
-Features des Forks:
-- Leicht angepasste Struktur
-- Syntax Highlighting für eine Vielzahl von Sprachen und Formaten, die per default nicht unterstützt werden
-- Run Configurations für IntelliJ-basierte IDEs
-
 **Inhalt:**
-* [Syntax Highlighting](#syntax-highlighting)
-* [IntelliJ-basierte IDEs](#intellij-basierte-ides)
 * [Templatestruktur](#templatestruktur)
 * [Document Types](#document-types)
 * [Komponenten einer Wissenschaftlichen Arbeit](#komponenten-einer-wissenschaftlichen-arbeit)
 * [Contributors](#contributors)
-
-## Syntax Highlighting
-
-Für das Syntax Highlighting werden [minted](https://github.com/gpoore/minted) und die [Pygments](https://pygments.org/) Syntax Highlighting Engine genutzt.
-Dafür muss allerding Pygments separat installiert werden:
-
-1. Python installieren
-2. Pygments installieren: `pip install Pygments`
-3. Das pygmentize executable (z.B. `C:\Python311\Scripts`) zum PATH hinzufügen
-
-### Verwendung
-
-Mit Standard-Stil:
-
-```LaTeX
-\begin{code}{LANGUAGE}{CAPTION}{LABEL}
-  <the actual code>
-\end{code}
-```
-
-Stil festlegen:
-
-```LaTeX
-\begin{code}[STYLE]{LANGUAGE}{CAPTION}{LABEL}
-  <the actual code>
-\end{code}
-```
-
-Um herauszufinden, welche Stile und Sprachen unterstützt werden, führe folgende Kommandos im Terminal aus:
-
-```terminal
-pygmentize -L styles
-```
-
-```terminal
-pygmentize -L lexers
-```
-
-Beispiel:
-
-```LaTeX
-\begin{code}{python}{Python Code}{lst:PythonCode}
-def fibonacci(n):
-  x, y = 0, 1
-  for i in range(n):
-      x, y = y, x + y
-  return x
-
-if __name__ == "__main__":
-  import sys
-  n = int(sys.argv[1])
-  print(fibonacci(10))
-\end{code}
-```
-
-### Anpassung
-
-Die Defaults des Syntax Highlighting können im entsprechenden Header (`src/ads/code-highlighting-header.tex`) angepasst werden.
-
-## IntelliJ-basierte IDEs
-
-Im Ordner `.run` liegen Run Configurations, die von IntelliJ-basierten IDEs automatisch erkannt werden.
-Dafür ist jedoch das Plugin `TeXiFy IDEA` erforderlich!
-Das Plugin `PDF Viewer` wird ebenfalls empfohlen.
-
-Zum Erstellen des PDFs, einfach die Run Configuration `generate PDF` ausführen.
-Falls es Probleme mit der Bibliographie geben sollte, kann es helfen, auch `generate Bibliography` auszuführen.
-Der output befindet sich im Ordner `out`, insbesondere das generierte PDF (als `main.pdf`).
-
-Diese Run Configurations wurden für die Verwendung mit der [MiKTeX](https://miktex.org/) LaTeX-Distribution erstellt.
 
 ## Templatestruktur
 
@@ -124,28 +47,28 @@ In der Datei main.tex sind grundlegende Einstellungen vordefiniert, welche nicht
 
 In der Datei document.tex müssen einige Angaben über die zu schreibende Arbeit gemacht werden:
 
-| Variable            | Beschreibung                                          | Mögliche Werte  |
-| ------------------- | ----------------------------------------------------- | --------------- |
-| documentLanguage    | Sprache der Arbeit                                    | de<br/> en      |
-| documentType        | Art der Arbeit                                        | T2\\_1000 Projektarbeit (Semester 1 & 2) <br/> T2\\_2000 Projektarbeit (Semester 3 & 4) <br/> T2\\_3100 Studienarbeit (Semester 5) <br/> T2\\_3300 Bachelorarbeit <br/> Für andere Arbeiten den Typ direkt eintragen|
-| multipleAuthors     | Wurde die Arbeit von mehreren Autoren verfasst?       | true<br/> false |
-| documentAuthor      | Autor der Arbeit                                      |                 |
-| documentTitle       | Titel der Arbeit                                      |                 |
-| documentPeriod      | Dauer der Arbeit                                      |                 |
-| matriculationNumber | Matrikelnummer des Autors                             |                 |
-| locationUniversity  | Standort der DHBW                                     | Heidenheim      |
-| department          | Fakultät der DHBW in der sich der Autor befindet      |                 |
-| course              | Kurs in dem sich der Autor befindet                   |                 |
-| degree              | Abschluss, welcher mit dieser Arbeit angestrebt wird  | Bachelor of Science (INF2014-MI - INF2016-MI) <br/> Bachelor of Engineering (INF2014-IA/IM - INF2016-IA/IM) <br/> Bachelor of Science  (INF2017-IM/MI/IA) |
-| lecture             | Vorlesung, für die die Arbeit geschrieben wurde       |                 |
-| showLecture         | Ob die Vorlesung auf dem Deckblatt gezeigt werden soll| true <br/> false|
-| releaseDate         | Abgabedatum                                           |                 |
-| releaseLocation     | Abgabeort                                             | Heidenheim      |
-| companyName         | Name des Unternehmens in dem der Autor angestellt ist |                 |
-| companyLocation     | Firmensitz                                            |                 |
-| tutor               | Betrieblicher Betreuer der Arbeit                     |                 |
-| evaluator           | Zweitkorrektor der Arbeit                             |                 |
-| linkColor           | Farbe von Verlinkungen                                | 000000 (schwarz)|
+| Variable            | Beschreibung                                           | Mögliche Werte                                                                                                                                                                                                       |
+|---------------------|--------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| documentLanguage    | Sprache der Arbeit                                     | de<br/> en                                                                                                                                                                                                           |
+| documentType        | Art der Arbeit                                         | T2\\_1000 Projektarbeit (Semester 1 & 2) <br/> T2\\_2000 Projektarbeit (Semester 3 & 4) <br/> T2\\_3100 Studienarbeit (Semester 5) <br/> T2\\_3300 Bachelorarbeit <br/> Für andere Arbeiten den Typ direkt eintragen |
+| multipleAuthors     | Wurde die Arbeit von mehreren Autoren verfasst?        | true<br/> false                                                                                                                                                                                                      |
+| documentAuthor      | Autor der Arbeit                                       |                                                                                                                                                                                                                      |
+| documentTitle       | Titel der Arbeit                                       |                                                                                                                                                                                                                      |
+| documentPeriod      | Dauer der Arbeit                                       |                                                                                                                                                                                                                      |
+| matriculationNumber | Matrikelnummer des Autors                              |                                                                                                                                                                                                                      |
+| locationUniversity  | Standort der DHBW                                      | Heidenheim                                                                                                                                                                                                           |
+| department          | Fakultät der DHBW in der sich der Autor befindet       |                                                                                                                                                                                                                      |
+| course              | Kurs in dem sich der Autor befindet                    |                                                                                                                                                                                                                      |
+| degree              | Abschluss, welcher mit dieser Arbeit angestrebt wird   | Bachelor of Science (INF2014-MI - INF2016-MI) <br/> Bachelor of Engineering (INF2014-IA/IM - INF2016-IA/IM) <br/> Bachelor of Science  (INF2017-IM/MI/IA)                                                            |
+| lecture             | Vorlesung, für die die Arbeit geschrieben wurde        |                                                                                                                                                                                                                      |
+| showLecture         | Ob die Vorlesung auf dem Deckblatt gezeigt werden soll | true <br/> false                                                                                                                                                                                                     |
+| releaseDate         | Abgabedatum                                            |                                                                                                                                                                                                                      |
+| releaseLocation     | Abgabeort                                              | Heidenheim                                                                                                                                                                                                           |
+| companyName         | Name des Unternehmens in dem der Autor angestellt ist  |                                                                                                                                                                                                                      |
+| companyLocation     | Firmensitz                                             |                                                                                                                                                                                                                      |
+| tutor               | Betrieblicher Betreuer der Arbeit                      |                                                                                                                                                                                                                      |
+| evaluator           | Zweitkorrektor der Arbeit                              |                                                                                                                                                                                                                      |
+| linkColor           | Farbe von Verlinkungen                                 | 000000 (schwarz)                                                                                                                                                                                                     |
 
 ### content
 

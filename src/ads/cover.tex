@@ -1,14 +1,13 @@
 %!TEX root = ../main.tex
 
 \begin{titlepage}
-	\begin{longtable}{p{8cm} p{8cm}}
-		\raggedright {\raisebox{\ht\strutbox-\totalheight}{\includegraphics[height=2.5cm]{images/cover/logo-dhbw.pdf}}} &
-		% no company logo for semester paper and special documents
-		\ifDocType{T2\_3100}{}{%
+	\begin{longtable}{p{4cm} p{11cm}}
+		\raggedright {\raisebox{\ht\strutbox-\totalheight}{\includegraphics[width=5cm]{images/cover/logo-dhbw.pdf}}} &
+		\ifDocType{T2\_3100}{}{
 			\ifSpecialDocument{}{%
-				\raggedleft {\raisebox{\ht\strutbox-\totalheight}{\includegraphics[height=2.5cm]{images/cover/logo-company.png}}}
+				\raggedleft {\raisebox{\ht\strutbox-\totalheight}{\includegraphics[width=7cm]{images/cover/logo-company.png}}}
 			}%
-		}%
+		}
 	\end{longtable}
 	\enlargethispage{20mm}
 	\begin{center}
@@ -36,7 +35,7 @@
 	\vfill
 	\begin{spacing}{1.2}
 	\begin{tabbing}
-		mmmmmmmmmmmmmmmmmmmmmmmmmm             \= \kill
+		mmmmmmmmmmmmmmmmmmmmmm             \= \kill
 		\textbf{\documentPeriodPhrase}       \>  \documentPeriod\\
 		\textbf{\matriculationNumberPhrase, \coursePhrase}  \>  \matriculationNumber, \course\\
 
