@@ -5,8 +5,32 @@
 Das ist ein Kapitel.
 Und das ist eine Quellenangabe\cite{MadeInGermanyLabel}.
 
+Ein Akronym mit \textbackslash ac\{API\}: \ac{API}
+
+Ein Akronym mit \textbackslash ac\{API\}: \ac{API} (zweite Verwendung von \textbackslash ac\{API\})
+
+
 \section{Unterkapitel}
-Das ist ein Unterkapitel.
+Der \LaTeX-Code, um Abbildung~\ref{fig:LaTeXProjectLogo} einzubinden:
+
+\definecolor{LinkColor}{HTML}{FFFFFF}  % Farbe von Links auf Weiß setzen, damit die Referenz auf die Abbildung in der Überschrift weiß ist
+\begin{code}{latex}{Der \LaTeX-Code, um Abbildung~\ref{fig:LaTeXProjectLogo} einzubinden}{lst:LaTeXCode}
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.5\linewidth]{images/LaTeX_project_logo_bird}
+        \caption{Logo des \LaTeX-Projekts}
+        \label{fig:LaTeXProjectLogo}
+    \end{figure}
+\end{code}
+\definecolor{LinkColor}{HTML}{\linkColor}  % Farbe von Links wieder zurücksetzen
+
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/LaTeX_project_logo_bird}
+    \caption{Logo des \LaTeX-Projekts}
+    \label{fig:LaTeXProjectLogo}
+\end{figure}
 
 \subsection{Unterunterkapitel}
 Das ist ein Unterunterkapitel.

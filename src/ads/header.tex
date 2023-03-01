@@ -66,7 +66,7 @@
 \usepackage{wrapfig}
 \usepackage{pgffor}
 \usepackage[perpage, hang, multiple, stable]{footmisc}
-\usepackage[printonlyused,footnote]{acronym}
+\usepackage[printonlyused]{acronym}
 \usepackage{listings}
 \lstset{literate=%
         {Ö}{{\"O}}1
@@ -102,10 +102,12 @@
 \usepackage{mathrsfs}
 \usetikzlibrary{arrows}
 
-\input{ads/code-highlighting-header.tex}
+\input{ads/code-highlighting-header}
 
 \usepackage[export]{adjustbox}
 \usepackage{booktabs}
+\usepackage{abstract}
+\usepackage{lipsum}
 
 % Generate glossary
 \makeglossaries{}
@@ -170,14 +172,14 @@
     emphstyle={\color{red}},
     identifierstyle=\color{black},
     morekeywords=[2]{},
-    morekeywords=[3]{moveToJointPose, toList, doubleArrayOf, map, get, asyncSendRequest, to, shouldBe, MoveListener, delay, createClient, createNode, rclJavaInit, motion2, motion1, generateMoveRequest, testMotionExecutionStates, testOverallStateToBe, testMoveRequest, hasAllMoveRobotResponseChecksProcessed, toLong, fixed, seconds, until, moveRobot, testMotion, IllegalArgumentException, invoke, poll, supervisorScope, launch},
+    morekeywords=[3]{},
     keywordstyle=[2]\color{red},
     keywordstyle=[3]\color[rgb]{0.0,0.0,0.75},
     keywords={!in, !is, abstract, actual, annotation, as, as?, break, by, catch, class, companion, const, constructor, continue, crossinline, data, delegate, do, dynamic, else, enum, expect, external, false, field, file, final, finally, for, fun, if, import, in, infix, init, inline, inner, interface, internal, is, lateinit, noinline, null, object, open, operator, out, override, package, param, private, property, protected, public, receiveris, reified, return, return@, sealed, set, setparam, super, suspend, tailrec, this, throw, true, try, typealias, typeof, val, var, vararg, when, where, while},
     morecomment=[s]{/*}{*/},
     morestring=[b]",
     morestring=[s]{"""*}{*"""},
-    ndkeywords={@Deprecated, @JvmField, @JvmName, @JvmOverloads, @JvmStatic, @JvmSynthetic, Array, DoubleArray, FloatArray, Byte, Double, Float, Int, Integer, Iterable, Long, Runnable, Short, String, Unit, Duration, RCLJava, GetCurrentTool, MoveResponse, TestContext, MoveRequest, TestClient, STARTED, STOPPED, FINISHED, EXECUTING, QUEUED, it, MoveJoint, MoveJoint_Request, MoveJoint_Response},
+    ndkeywords={@Deprecated, @JvmField, @JvmName, @JvmOverloads, @JvmStatic, @JvmSynthetic, Array, DoubleArray, FloatArray, Byte, Double, Float, Int, Integer, Iterable, Long, Runnable, Short, String, Unit},
     ndkeywordstyle={\color{orange}\bfseries},
     sensitive=true,
     showstringspaces=false,
