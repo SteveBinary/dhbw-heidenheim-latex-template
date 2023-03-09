@@ -2,11 +2,88 @@
 
 Dieses LaTeX Template ist für alle Arbeiten der Fakultät Informatik der DHBW Heidenheim geeignet.
 
+Features des Forks:
+- Leicht angepasste Struktur
+- Syntax Highlighting für eine Vielzahl von Sprachen und Formaten, die per default nicht unterstützt werden
+- Run Configurations für IntelliJ-basierte IDEs
+
 **Inhalt:**
+* [Syntax Highlighting](#syntax-highlighting)
+* [IntelliJ-basierte IDEs](#intellij-basierte-ides)
 * [Templatestruktur](#templatestruktur)
 * [Document Types](#document-types)
 * [Komponenten einer Wissenschaftlichen Arbeit](#komponenten-einer-wissenschaftlichen-arbeit)
 * [Contributors](#contributors)
+
+## Syntax Highlighting
+
+Für das Syntax Highlighting werden [minted](https://github.com/gpoore/minted) und die [Pygments](https://pygments.org/) Syntax Highlighting Engine genutzt.
+Dafür muss allerdings Pygments separat installiert werden:
+
+1. Python installieren
+2. Pygments installieren: `pip install Pygments`
+3. Das pygmentize executable (z.B. `C:\Python311\Scripts`) zum PATH ("Umgebungsvariablen" auf in Windows) hinzufügen
+
+### Verwendung
+
+Mit Standard-Stil:
+
+```LaTeX
+\begin{code}{LANGUAGE}{CAPTION}{LABEL}
+  <the actual code>
+\end{code}
+```
+
+Stil festlegen:
+
+```LaTeX
+\begin{code}[STYLE]{LANGUAGE}{CAPTION}{LABEL}
+  <the actual code>
+\end{code}
+```
+
+Um herauszufinden, welche Stile und Sprachen unterstützt werden, führe folgende Kommandos im Terminal aus:
+
+```terminal
+pygmentize -L styles
+```
+
+```terminal
+pygmentize -L lexers
+```
+
+Beispiel:
+
+```LaTeX
+\begin{code}{python}{Python Code}{lst:PythonCode}
+def fibonacci(n):
+  x, y = 0, 1
+  for i in range(n):
+      x, y = y, x + y
+  return x
+
+if __name__ == "__main__":
+  import sys
+  n = int(sys.argv[1])
+  print(fibonacci(10))
+\end{code}
+```
+
+### Anpassung
+
+Die Defaults des Syntax Highlighting können im entsprechenden Header (`src/ads/code-highlighting-header.tex`) angepasst werden.
+
+## IntelliJ-basierte IDEs
+
+Im Ordner `.run` liegen Run Configurations, die von IntelliJ-basierten IDEs automatisch erkannt werden.
+Dafür ist jedoch das Plugin `TeXiFy IDEA` erforderlich!
+Das Plugin `PDF Viewer` wird ebenfalls empfohlen.
+
+Zum Erstellen des PDFs, einfach die Run Configuration `generate PDF` ausführen.
+Falls es Probleme mit der Bibliographie geben sollte, kann es helfen, auch `generate Bibliography` auszuführen.
+Der output befindet sich im Ordner `out`, insbesondere das generierte PDF (als `main.pdf`).
+
+Diese Run Configurations wurden für die Verwendung mit der [MiKTeX](https://miktex.org/) LaTeX-Distribution erstellt.
 
 ## Templatestruktur
 
@@ -79,17 +156,17 @@ In der Datei document.tex müssen einige Angaben über die zu schreibende Arbeit
 
 Das Template bietet die folgenden verschiedenen Document Types an:
 
-* T2_1000 Project Thesis (Semester 1 & 2)
-* T2_2000 Project Thesis (Semester 3 & 4)
-* T2_3100 Seminar Paper (Semester 5 & 6)
-* T2_3300 Bachelor Thesis
+* T3_1000 Project Thesis (Semester 1 & 2)
+* T3_2000 Project Thesis (Semester 3 & 4)
+* T3_3100 Seminar Paper (Semester 5 & 6)
+* T3_3300 Bachelor Thesis
 * Sonstige
 
 Das Template passt alle relevanten Einstellungen automatisch an, sobald der Document Type geändert wird.
 
 ## Document Type spezifische Besonderheiten
 
-### T2_3100
+### T3_3100
 
 Die Studienarbeit ist eine reine Hochschularbeit. Aus diesem Grund wird der Ort der Firma und der Sperrvermerk entfernt. Desweiteren ist es möglich die Studienarbeit als Gruppe abzugeben. Hierfür gibt es die Variable multipleAuthors. Ist diese auf true gesetzt, passt sich die Eigenständigkeitserklärungs selbst von der Ich- zur Wir-Form an. Mehrere Autoren sind lediglich mit Komma getrent in die Variable documentAuthor einzutragen.
 
