@@ -85,6 +85,7 @@
 \usepackage{amssymb}
 \usepackage{\documentFont}
 \usepackage[%
+    breaklinks,
     pdftitle={\documentTitle},
     pdfauthor={\documentAuthor},
     pdfsubject={\documentType},
@@ -155,6 +156,10 @@
         style=\quoteStyle,
     ]{biblatex}
 }
+
+% break long links in bibliography
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
 
 \addbibresource{bibliography.bib}
 
